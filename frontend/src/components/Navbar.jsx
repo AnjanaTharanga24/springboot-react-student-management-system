@@ -25,7 +25,9 @@ export default function Navbar() {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
+                <Link to="/login">
               <button className="signin btn btn-success">Sign in</button>
+              </Link>
             </li>
             <li className="nav-item">
               <Link to="/register">
