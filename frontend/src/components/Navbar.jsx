@@ -1,5 +1,6 @@
 import React from "react";
-
+import "../css/navbar.css";
+import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <div>
@@ -18,18 +19,18 @@ export default function Navbar() {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
           <ul className="navbar-nav">
-            
             <li className="nav-item">
-              <a className="nav-link text-white fs-5 " href="#">
-                Sign in
-              </a>
+              <button className="signin btn btn-success">Sign in</button>
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled text-white fs-5" href="#">
-                Sign up
-              </a>
+              <Link to="/register">
+                <button className="btn btn-info text-white">Sign up</button>
+              </Link>
             </li>
           </ul>
         </div>

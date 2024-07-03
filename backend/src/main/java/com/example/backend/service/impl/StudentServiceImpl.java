@@ -28,6 +28,7 @@ public class StudentServiceImpl implements StudentService {
         student.setAddress(studentRequest.getAddress());
         student.setMobile(studentRequest.getMobile());
         student.setEmail(studentRequest.getEmail());
+        student.setPassword(studentRequest.getPassword());
         student.setDob(studentRequest.getDob());
 
         studentRepository.save(student);
@@ -40,6 +41,7 @@ public class StudentServiceImpl implements StudentService {
                 .address(student.getAddress())
                 .mobile(student.getMobile())
                 .email(student.getEmail())
+                .password(student.getPassword())
                 .dob(student.getDob())
                 .build();
     }
@@ -62,6 +64,7 @@ public class StudentServiceImpl implements StudentService {
                 .address(foundStudent.getAddress())
                 .mobile(foundStudent.getMobile())
                 .email(foundStudent.getEmail())
+                .password(foundStudent.getPassword())
                 .dob(foundStudent.getDob())
                 .build();
     }
@@ -92,6 +95,7 @@ public class StudentServiceImpl implements StudentService {
         currentStudent.setAddress(studentRequest.getAddress());
         currentStudent.setMobile(studentRequest.getMobile());
         currentStudent.setEmail(studentRequest.getEmail());
+        currentStudent.setPassword(studentRequest.getPassword());
         currentStudent.setDob(studentRequest.getDob());
 
         studentRepository.save(currentStudent);

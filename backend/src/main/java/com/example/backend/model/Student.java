@@ -22,5 +22,6 @@ public class Student {
     private String address;
     private String mobile;
     private String email;
+    private String password;
     private LocalDate dob;
 }

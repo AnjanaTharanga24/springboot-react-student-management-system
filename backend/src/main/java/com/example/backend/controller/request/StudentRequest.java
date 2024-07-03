@@ -19,5 +19,6 @@ public class StudentRequest {
     private String address;
     private String mobile;
     private String email;
+    private String password;
     private LocalDate dob;
 }
