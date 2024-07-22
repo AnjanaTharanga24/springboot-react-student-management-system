@@ -1,6 +1,6 @@
 package com.example.backend.controller;
 
-import com.example.backend.controller.request.StudentRequest;
+import com.example.backend.controller.request.StudentRegisterRequest;
 import com.example.backend.controller.response.StudentResponse;
 import com.example.backend.exception.StudentNotFoundException;
 import com.example.backend.model.Student;
@@ -16,8 +16,8 @@ public class StudentController {
 
     private StudentService studentService;
     
-    @PostMapping("/students")
-    public StudentResponse registerStudent(@RequestBody StudentRequest studentRequest){
+    @PostMapping("/register")
+    public StudentResponse registerStudent(@RequestBody StudentRegisterRequest studentRequest){
         return studentService.registerStudent(studentRequest);
     }
 
@@ -37,7 +37,7 @@ public class StudentController {
     }
 
     @PutMapping("/students/{student-id}")
-    public StudentResponse updateStudent(@PathVariable("student-id")Long studentId , @RequestBody StudentRequest studentRequest){
+    public StudentResponse updateStudent(@PathVariable("student-id")Long studentId , @RequestBody StudentRegisterRequest studentRequest){
         return studentService.updateStudent(studentId,studentRequest);
     }
 }
