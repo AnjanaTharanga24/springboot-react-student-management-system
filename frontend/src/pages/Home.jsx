@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../css/landing.css";
+import homeImage2 from "../images/homeImage2.png";
 
 export default function Home() {
   return (
@@ -9,24 +10,31 @@ export default function Home() {
       <div>
         <Navbar />
       </div>
-      <div className="landing-body mb-1">
-        <div className="card shadow">
-          <h1>This is student management landing page</h1>
+
+      <div>
+        <img src={homeImage2} className="home-image" />
+        <div className="hero-card">
+          <div className="text-div">
+            <p className=" p-5 text-white hero-text-title">
+              Welcome to Our Student Management System
+            </p>
+
+            <div className="text2-div">
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere
+                mollitia a commodi perferendis, dicta repudiandae veniam odit
+                suscipit labore expedita sit ut modi placeat harum. Fugit quas
+                reprehenderit labore dolore.
+              </p>
+            </div>
+
+            <div className="p-3 ">
+              <button className="btn btn-primary fs-3">View Our Courses</button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="landing-body mb-1">
-        <div className="card shadow">
-          <h1>This is student management landing page</h1>
-        </div>
-      </div>
-
-      <div className="landing-body mb-1">
-        <div className="card shadow">
-          <h1>This is student management landing page</h1>
-        </div>
-      </div>
-      
       <div>
         <Footer />
       </div>
