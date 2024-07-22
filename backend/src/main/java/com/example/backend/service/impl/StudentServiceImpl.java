@@ -1,12 +1,13 @@
 package com.example.backend.service.impl;
 
-import com.example.backend.controller.request.StudentRequest;
+import com.example.backend.controller.request.StudentRegisterRequest;
 import com.example.backend.controller.response.StudentResponse;
 import com.example.backend.exception.StudentNotFoundException;
 import com.example.backend.model.Student;
 import com.example.backend.repository.StudentRepository;
 import com.example.backend.service.StudentService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,9 +18,9 @@ import java.util.Optional;
 public class StudentServiceImpl implements StudentService {
 
     private StudentRepository studentRepository;
-
+    private PasswordEncoder passwordEncoder;
     @Override
-    public StudentResponse registerStudent(StudentRequest studentRequest) {
+    public StudentResponse registerStudent(StudentRegisterRequest studentRequest) {
 
         Student student = new Student();
         student.setName(studentRequest.getName());
@@ -28,7 +29,7 @@ public class StudentServiceImpl implements StudentService {
         student.setAddress(studentRequest.getAddress());
         student.setMobile(studentRequest.getMobile());
         student.setEmail(studentRequest.getEmail());
-        student.setPassword(studentRequest.getPassword());
+        student.setPassword(passwordEncoder.encode(studentRequest.getPassword()));
         student.setDob(studentRequest.getDob());
 
         studentRepository.save(student);
@@ -81,7 +82,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public StudentResponse updateStudent(Long studentId , StudentRequest studentRequest) {
+    public StudentResponse updateStudent(Long studentId , StudentRegisterRequest studentRequest) {
         Optional<Student> studentOptional = studentRepository.findById(studentId);
 
         if(!studentOptional.isPresent()){

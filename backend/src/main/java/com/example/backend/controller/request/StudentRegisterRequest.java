@@ -1,8 +1,6 @@
 package com.example.backend.controller.request;
 
 import com.example.backend.model.Gender;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +9,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentRequest {
+public class StudentRegisterRequest {
 
     private String name;
     private Integer age;
