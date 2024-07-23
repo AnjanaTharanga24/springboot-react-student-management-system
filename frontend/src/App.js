@@ -4,9 +4,11 @@ import Home from './pages/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import { UserProvider } from './components/UserContext';
 
 function App() {
   return (
+    <UserProvider>
     <div className="App">
       <Router>
         <Routes>
@@ -14,11 +16,11 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
 
-          
+    
         </Routes>
       </Router>
-     
     </div>
+    </UserProvider>
   );
 }
 

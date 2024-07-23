@@ -1,10 +1,39 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../css/login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { UserContext } from "../components/UserContext";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const [username , setUsername] = useState('')
+  const [password , setPassword] = useState('')
+  const {setUser} = useContext(UserContext);
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:8082/login',{
+        username,
+        password
+      })
+      console.log("Login response:" , response.data)
+
+      //Set user in context
+      setUser({
+        username: response.data.username
+      })
+      console.log("user set in context:",{
+         username: response.data.username
+      })
+      console.log("full login response :",response)
+      navigate('/')
+    } catch (error) {
+      console.error("login error : " , error)
+    }
+
+  }
   return (
     <div>
       {/* <div>
@@ -15,34 +44,37 @@ export default function Login() {
         <div className="form-header">
           <h2>Login</h2>
         </div>
-        <form>
+        <form >
           <div className="form-group mb-4">
-            <label htmlFor="exampleInputEmail1" className="mb-2">
-              Email Address
+            <label htmlFor="username" className="mb-2">
+              User name
             </label>
             <input
-              type="email"
+              type="text"
               className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="Enter username"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
           <div className="form-group mb-4">
-            <label htmlFor="exampleInputPassword1" className="mb-2">
+            <label htmlFor="password" className="mb-2">
               Password
             </label>
             <input
               type="password"
               className="form-control"
-              id="exampleInputPassword1"
               placeholder="Password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
           <div className="d-flex justify-content-between mt-5">
-            <button type="submit" className="btn btn-success">
+            <button type="submit" className="btn btn-success" onClick={handleSubmit}>
               Login
             </button>
 

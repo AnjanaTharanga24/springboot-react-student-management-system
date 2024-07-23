@@ -3,8 +3,11 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../css/register.css";
+import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     name: '',
     username: '',
@@ -30,8 +33,24 @@ export default function Register() {
     try {
       const response = await axios.post("http://localhost:8082/register", user);
       console.log(response.data);
+
+      Swal.fire({
+        icon: "success",
+        title: 'Registration Successful!',
+        text: 'You have been registered successfully.',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'     
+       });
+      navigate('/login');
     } catch (error) {
       console.error("Registration error:", error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Registration Failed',
+        text: 'There was an error during registration. Please try again.',
+        confirmButtonColor: '#d33',
+        confirmButtonText: 'OK'
+      });
     }
   };
 
