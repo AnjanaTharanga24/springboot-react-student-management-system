@@ -1,6 +1,4 @@
 import React, { useContext, useState } from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import "../css/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -35,23 +33,23 @@ export default function Login() {
 
   }
   return (
-    <div>
+    <div className="login-page">
       {/* <div>
       <Navbar />
     </div> */}
 
       <div className="card shadow fs-5 login-form">
         <div className="form-header">
-          <h2>Login</h2>
+          <h2>Login Form</h2>
         </div>
         <form >
-          <div className="form-group mb-4">
-            <label htmlFor="username" className="mb-2">
+          <div className="form-group mb-4 ">
+            <label htmlFor="username" className="mb-2 login-label">
               User name
             </label>
             <input
               type="text"
-              className="form-control"
+              className="form-control login-form-control"
               placeholder="Enter username"
               id="username"
               value={username}
@@ -60,12 +58,12 @@ export default function Login() {
           </div>
 
           <div className="form-group mb-4">
-            <label htmlFor="password" className="mb-2">
+            <label htmlFor="password" className="login-label mb-2">
               Password
             </label>
             <input
               type="password"
-              className="form-control"
+              className="form-control login-form-control"
               placeholder="Password"
               id="password"
               value={password}
