@@ -14,6 +14,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String username;
     private Integer age;
 
     @Enumerated(EnumType.STRING)

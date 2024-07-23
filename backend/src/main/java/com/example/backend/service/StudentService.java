@@ -2,6 +2,7 @@ package com.example.backend.service;
 
 import com.example.backend.controller.request.StudentRegisterRequest;
 import com.example.backend.controller.response.StudentResponse;
+import com.example.backend.exception.StudentExistsException;
 import com.example.backend.exception.StudentNotFoundException;
 import com.example.backend.model.Student;
 
@@ -9,7 +10,7 @@ import java.util.List;
 
 public interface StudentService {
 
-    StudentResponse registerStudent(StudentRegisterRequest studentRequest);
+    StudentResponse registerStudent(StudentRegisterRequest studentRequest) throws StudentExistsException;
     StudentResponse studentFindById(Long studentId) throws StudentNotFoundException;
 
     List<Student> getAllStudents();

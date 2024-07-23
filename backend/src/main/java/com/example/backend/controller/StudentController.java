@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.controller.request.StudentRegisterRequest;
 import com.example.backend.controller.response.StudentResponse;
+import com.example.backend.exception.StudentExistsException;
 import com.example.backend.exception.StudentNotFoundException;
 import com.example.backend.model.Student;
 import com.example.backend.service.StudentService;
@@ -17,7 +18,7 @@ public class StudentController {
     private StudentService studentService;
     
     @PostMapping("/register")
-    public StudentResponse registerStudent(@RequestBody StudentRegisterRequest studentRequest){
+    public StudentResponse registerStudent(@RequestBody StudentRegisterRequest studentRequest) throws StudentExistsException {
         return studentService.registerStudent(studentRequest);
     }
 
