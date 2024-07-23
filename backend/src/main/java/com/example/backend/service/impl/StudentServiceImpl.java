@@ -1,6 +1,8 @@
 package com.example.backend.service.impl;
 
+import com.example.backend.controller.request.StudentLoginRequest;
 import com.example.backend.controller.request.StudentRegisterRequest;
+import com.example.backend.controller.response.LoginResponse;
 import com.example.backend.controller.response.StudentResponse;
 import com.example.backend.exception.StudentExistsException;
 import com.example.backend.exception.StudentNotFoundException;
@@ -118,5 +120,16 @@ public class StudentServiceImpl implements StudentService {
                 .email(currentStudent.getEmail())
                 .dob(currentStudent.getDob())
                 .build();
+    }
+
+    @Override
+    public LoginResponse loginStudent(StudentLoginRequest loginRequest) throws StudentNotFoundException {
+        Student student = studentRepository.findByUsername(loginRequest.getUsername()).orElseThrow(()->new StudentNotFoundException("student not found with user name : " +loginRequest.getUsername()));
+
+        if (passwordEncoder.matches(loginRequest.getPassword(), student.getPassword())){
+            return new LoginResponse("Login successful");
+        }else {
+            throw new StudentNotFoundException("Invalid credential");
+        }
     }
 }
