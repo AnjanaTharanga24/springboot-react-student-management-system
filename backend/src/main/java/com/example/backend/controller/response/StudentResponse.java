@@ -15,6 +15,7 @@ public class StudentResponse {
 
     private Long id;
     private String name;
+    private String username;
     private Integer age;
     private Gender gender;
     private String address;

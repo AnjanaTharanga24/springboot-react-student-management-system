@@ -2,6 +2,7 @@ package com.example.backend.service.impl;
 
 import com.example.backend.controller.request.StudentRegisterRequest;
 import com.example.backend.controller.response.StudentResponse;
+import com.example.backend.exception.StudentExistsException;
 import com.example.backend.exception.StudentNotFoundException;
 import com.example.backend.model.Student;
 import com.example.backend.repository.StudentRepository;
@@ -20,10 +21,15 @@ public class StudentServiceImpl implements StudentService {
     private StudentRepository studentRepository;
     private PasswordEncoder passwordEncoder;
     @Override
-    public StudentResponse registerStudent(StudentRegisterRequest studentRequest) {
+    public StudentResponse registerStudent(StudentRegisterRequest studentRequest)throws StudentExistsException {
+
+        if(studentRepository.existsByUsername(studentRequest.getUsername())){
+            throw new  StudentExistsException("username already exists");
+        }
 
         Student student = new Student();
         student.setName(studentRequest.getName());
+        student.setUsername(studentRequest.getUsername());
         student.setAge(studentRequest.getAge());
         student.setGender(studentRequest.getGender());
         student.setAddress(studentRequest.getAddress());
@@ -37,6 +43,7 @@ public class StudentServiceImpl implements StudentService {
         return StudentResponse.builder()
                 .id(student.getId())
                 .name(student.getName())
+                .username(student.getUsername())
                 .age(student.getAge())
                 .gender(student.getGender())
                 .address(student.getAddress())
