@@ -2,10 +2,10 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../css/profile.css";
-import profileImage from "../images/profile.png";
+import profileImage from "../images/profile2.jpg";
 export default function StudentProfile() {
   return (
-    <div>
+    <div className="student-profile">
       <div>
         <Navbar />
       </div>
