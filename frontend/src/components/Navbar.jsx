@@ -78,7 +78,7 @@ export default function Navbar() {
                 </div>
                 {dropdownOpen && (
                   <div className="dropdown-content show">
-                     <Link to="/" onClick={handleLogout}>
+                     <Link to="/student-profile">
                       My profile
                     </Link>
                     <Link to="/" onClick={handleLogout}>

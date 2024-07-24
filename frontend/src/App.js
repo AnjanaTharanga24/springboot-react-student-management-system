@@ -6,7 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import { UserProvider } from './components/UserContext';
-import New from './pages/New';
+
+import StudentProfile from './pages/StudentProfile';
 
 function App() {
   return (
@@ -17,8 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/new" element={<New />} />
-
+          <Route path="/student-profile" element={<StudentProfile />} />
     
         </Routes>
       </Router>
