@@ -1,0 +1,60 @@
+.student-profile{
+ background-image: url(../images/profilebg6.jpg);
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
+ min-height: 100vh;
+ justify-content: center;
+ align-items: center;
+}
+
+.profile-image-card{
+    width: 600px;
+    height: 550px;
+    background-color: rgba(0, 0,0,0.8);
+    color: white;
+    border-radius: 20px;
+}
+
+.profile-details-card{
+    width: 900px;
+    margin-left: 40px;
+    padding: 50px;
+    background-color: rgba(0, 0,0,0.8);
+    border-radius: 20px;
+}
+
+.profile-card{
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-bottom: -250px;
+}
+
+.profile-image{
+    width: 300px;
+    height: 300px;
+    margin-top: 30px;
+}
+
+.profile-name{
+    margin-top: 30px;
+    font-size: 30px;
+}
+
+.delete-btn{
+    margin-left: 60px;
+    font-size: 20px;
+}
+
+.edit-btn {
+    font-size: 20px;
+}
+
+.main-text{
+    margin-right: 100px;
+    color: white;
+}
+
+.value-text{
+    color: rgb(123, 128, 128);
+}

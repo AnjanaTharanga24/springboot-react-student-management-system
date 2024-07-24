@@ -2,6 +2,10 @@ import React, { useContext, useState } from "react";
 import "../css/navbar.css";
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
+import { toast, ToastContainer } from "react-toastify";
+import Swal from "sweetalert2";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Navbar() {
   const { user, setUser } = useContext(UserContext);
@@ -10,6 +14,13 @@ export default function Navbar() {
   const handleLogout = () => {
     setUser(null);
     setDropdownOpen(false);
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Logout Successfull!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   const toggleDropdown = () => {
@@ -17,7 +28,7 @@ export default function Navbar() {
   };
 
   console.log("User in Navbar:", user);
-   
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark p-3">
@@ -56,24 +67,33 @@ export default function Navbar() {
             )}
 
             {user && (
-              <li className="dropdown">
+              <li className="dropdown ">
                 <div className="profile-wrapper" onClick={toggleDropdown}>
-                  <span className="profile-icon bg-danger text-white">👤</span>
-                  <span className="username text-white">{user.username}</span>
-                  <span className="dropdown-arrow text-white">▼</span>
+                  <FontAwesomeIcon
+                    icon={faUserCircle}
+                    className="profile-icon text-white"
+                  />
+                  <span className="username text-white fs-4">{user.username}</span>
+                  <span className="dropdown-arrow text-white fs-4">▼</span>
                 </div>
                 {dropdownOpen && (
                   <div className="dropdown-content show">
+                     <Link to="/student-profile">
+                      My profile
+                    </Link>
                     <Link to="/" onClick={handleLogout}>
                       Logout
                     </Link>
+                   
                   </div>
+                  
                 )}
               </li>
             )}
           </ul>
         </div>
       </nav>
+      <ToastContainer />
     </div>
   );
 }
