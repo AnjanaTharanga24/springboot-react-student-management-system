@@ -10,3 +10,60 @@
     text-align: center;
 }
 
+.register-page{
+    background-image: url('../images/loginimage.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form {
+    margin-top: 200px;
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white;
+    border-radius: 28px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-size: 30px;
+  }
+  
+  .form-header h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .register-form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .register-form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .register-form-control:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Style for labels to ensure visibility */
+  .login-label {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* Adjust button styles if needed */
+  .btn-success, .btn-primary {
+    opacity: 0.9;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .login-form {
+      padding: 1.5rem;
+      margin-top: 100px; /* Adjust top margin for smaller screens */
+    }
+  }

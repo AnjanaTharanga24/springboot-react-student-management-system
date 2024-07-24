@@ -9,15 +9,15 @@ import { useNavigate } from "react-router-dom";
 export default function Register() {
   const navigate = useNavigate();
   const [user, setUser] = useState({
+    id: null,
     name: '',
     username: '',
-    age: '',
+    age: null,
     gender: '',
     address: '',
     mobile: '',
     email: '',
-    password: '',
-    dob: ''
+    dob: null
   });
 
   const handleChange = (e) => {
@@ -55,12 +55,12 @@ export default function Register() {
   };
 
   return (
-    <div className="">
+    <div className="register-page">
       <div>
         <Navbar />
       </div>
 
-      <div className="card reg-card mt-5 shadow fs-5">
+      <div className="card reg-card mt-5 shadow fs-5 register-form">
         <div className="form-header">
           <h2>Register student</h2>
         </div>
@@ -71,7 +71,7 @@ export default function Register() {
             </label>
             <input
               type="text"
-              className="form-control"
+              className="form-control register-form-control"
               id="name"
               name="name"
               aria-describedby="emailHelp"
@@ -87,7 +87,7 @@ export default function Register() {
             </label>
             <input
               type="text"
-              className="form-control"
+              className="form-control register-form-control"
               id="username"
               name="username"
               aria-describedby="emailHelp"
@@ -103,7 +103,7 @@ export default function Register() {
             </label>
             <input
               type="number"
-              className="form-control"
+              className="form-control register-form-control"
               id="age"
               name="age"
               aria-describedby="emailHelp"
@@ -121,7 +121,7 @@ export default function Register() {
             <div className="d-flex">
               <div className="form-check">
                 <input
-                  className="form-check-input"
+                  className="form-check-input register-form-control"
                   type="radio"
                   name="gender"
                   id="male"
@@ -136,7 +136,7 @@ export default function Register() {
 
               <div className="form-check">
                 <input
-                  className="form-check-input"
+                  className="form-check-input register-form-control"
                   type="radio"
                   name="gender"
                   id="female"
@@ -157,7 +157,7 @@ export default function Register() {
             </label>
             <input
               type="date"
-              className="form-control"
+              className="form-control register-form-control"
               id="dob"
               name="dob"
               placeholder="Enter your date of birth"
@@ -172,7 +172,7 @@ export default function Register() {
             </label>
             <input
               type="text"
-              className="form-control"
+              className="form-control register-form-control"
               id="address"
               name="address"
               aria-describedby="emailHelp"
@@ -188,7 +188,7 @@ export default function Register() {
             </label>
             <input
               type="tel"
-              className="form-control"
+              className="form-control register-form-control"
               id="mobile"
               name="mobile"
               aria-describedby="emailHelp"
@@ -204,7 +204,7 @@ export default function Register() {
             </label>
             <input
               type="email"
-              className="form-control"
+              className="form-control register-form-control"
               id="email"
               name="email"
               aria-describedby="emailHelp"
@@ -220,7 +220,7 @@ export default function Register() {
             </label>
             <input
               type="password"
-              className="form-control"
+              className="form-control register-form-control"
               id="password"
               name="password"
               placeholder="Password"

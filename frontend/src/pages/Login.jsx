@@ -3,37 +3,52 @@ import "../css/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../components/UserContext";
+import { Alert } from "bootstrap";
+import { toast, ToastContainer } from "react-toastify";
+import Swal from "sweetalert2";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [username , setUsername] = useState('')
-  const [password , setPassword] = useState('')
-  const {setUser} = useContext(UserContext);
-  const handleSubmit = async (e) =>{
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { setUser } = useContext(UserContext);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8082/login',{
+      const response = await axios.post("http://localhost:8082/login", {
         username,
-        password
-      })
-      console.log("Login response:" , response.data)
+        password,
+      });
+      console.log("Login response:", response.data);
 
-      //Set user in context
-      setUser({
-        username: response.data.username
-      })
-      console.log("user set in context:",{
-         username: response.data.username
-      })
-      console.log("full login response :",response)
-      navigate('/')
+      // Set user in context with full student details
+      setUser(response.data.student);
+      console.log("User set in context:", response.data.student);
+      console.log("Full login response:", response);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Loging Successfull!",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      setTimeout(() => navigate('/'), 1000);
     } catch (error) {
-      console.error("login error : " , error)
+      console.error("Login error:", error);
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Invalid Credentials!",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      
     }
-
-  }
+  };
   return (
     <div className="login-page">
+            <ToastContainer />
       {/* <div>
       <Navbar />
     </div> */}
@@ -42,7 +57,7 @@ export default function Login() {
         <div className="form-header">
           <h2>Login Form</h2>
         </div>
-        <form >
+        <form>
           <div className="form-group mb-4 ">
             <label htmlFor="username" className="mb-2 login-label">
               User name
@@ -72,7 +87,11 @@ export default function Login() {
           </div>
 
           <div className="d-flex justify-content-between mt-5">
-            <button type="submit" className="btn btn-success" onClick={handleSubmit}>
+            <button
+              type="submit"
+              className="btn btn-success"
+              onClick={handleSubmit}
+            >
               Login
             </button>
 
