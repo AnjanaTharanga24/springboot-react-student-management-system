@@ -124,12 +124,16 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public LoginResponse loginStudent(StudentLoginRequest loginRequest) throws StudentNotFoundException {
-        Student student = studentRepository.findByUsername(loginRequest.getUsername()).orElseThrow(()->new StudentNotFoundException("student not found with user name : " +loginRequest.getUsername()));
+        Student student = studentRepository.findByUsername(loginRequest.getUsername())
+                .orElseThrow(() -> new StudentNotFoundException("Student not found with username: " + loginRequest.getUsername()));
 
-        if (passwordEncoder.matches(loginRequest.getPassword(), student.getPassword())){
-            return new LoginResponse("Login successful");
-        }else {
-            throw new StudentNotFoundException("Invalid credential");
+        if (passwordEncoder.matches(loginRequest.getPassword(), student.getPassword())) {
+            return LoginResponse.builder()
+                    .message("User logged in successfully")
+                    .student(student)
+                    .build();
+        } else {
+            throw new StudentNotFoundException("Invalid credentials");
         }
     }
 }
