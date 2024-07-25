@@ -53,11 +53,11 @@ export default function Login() {
       <Navbar />
     </div> */}
 
-      <div className="card shadow fs-5 login-form">
-        <div className="form-header">
+      <div className="log-card shadow fs-5 login-form">
+        <div className="form-header mt-1">
           <h2>Login Form</h2>
         </div>
-        <form>
+        <form className="text-start">
           <div className="form-group mb-4 ">
             <label htmlFor="username" className="mb-2 login-label">
               User name

@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../css/landing.css";
 import homeImage2 from "../images/homeImage2.png";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -29,7 +30,9 @@ export default function Home() {
             </div>
 
             <div className="p-3 ">
+              <Link to="/view-courses">
               <button className="btn btn-primary fs-3">View Our Courses</button>
+              </Link>
             </div>
           </div>
         </div>

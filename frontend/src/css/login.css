@@ -1,4 +1,9 @@
 
+.log-card {
+width: 1000px;
+padding: 30px;
+margin-left: 400px;
+}
 
 .login-page {
     background-image: url('../images/loginimage.jpg'); 
