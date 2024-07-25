@@ -60,7 +60,7 @@ export default function Register() {
         <Navbar />
       </div>
 
-      <div className="card reg-card mt-5 shadow fs-5 register-form">
+      <div className="reg-card reg-card mt-5 shadow fs-5 register-form">
         <div className="form-header">
           <h2>Register student</h2>
         </div>
