@@ -1,9 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../css/profile.css";
 import profileImage from "../images/profile2.jpg";
+import { UserContext } from "../components/UserContext";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
 export default function StudentProfile() {
+    const { user, setUser } = useContext(UserContext);
+    const navigate = useNavigate();
+    
+    const handleDelete = async () => {
+        try {
+          const response = await axios.delete(`http://localhost:8082/students/${user.id}`);
+          setUser(null);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Account deleted successfully!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate('/');
+        } catch (error) {
+          console.error("Error deleting account: ", error.response || error);
+          let errorMessage = "Failed to delete account";
+          if (error.response) {
+            errorMessage += `: ${error.response.status} ${error.response.statusText}`;
+          }
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: errorMessage,
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      };
+    
   return (
     <div className="student-profile">
       <div>
@@ -13,10 +48,12 @@ export default function StudentProfile() {
       <div className=" d-flex profile-card ">
         <div className="shadow profile-image-card ">
           <img src={profileImage} className="profile-image" />
-          <p className="profile-name">Anjana tharanga</p>
+          <p className="profile-name">{user.name}</p>
           <div className="p-4">
+            <Link to='/update-student-profile'>
             <button className="btn btn-primary edit-btn ">Edit profile</button>
-            <button className="btn btn-danger delete-btn">
+            </Link>
+            <button className="btn btn-danger delete-btn" onClick={handleDelete}>
               Delete account
             </button>
           </div>
@@ -50,28 +87,28 @@ export default function StudentProfile() {
             </div>
             <div className="value-text fs-2">
                 <div className="p-1">
-                    <label >Anjana tharanga</label>
+                    <label >{user.name}</label>
                 </div>
                 <div className="p-1">
-                    <label>Anjana24</label>
+                    <label>{user.username}</label>
                 </div>
                 <div className="p-1">
-                    <label>24</label>
+                    <label>{user.age}</label>
                 </div>
                 <div className="p-1">
-                    <label>Male</label>
+                    <label>{user.gender}</label>
                 </div>
                 <div className="p-1">
-                    <label>1/28 c, weerasuriyakanda,pasyala</label>
+                    <label>{user.address}</label>
                 </div>
                 <div className="p-1">
-                    <label>077-4436594</label>
+                    <label>{user.mobile}</label>
                 </div>
                 <div className="p-1">
-                    <label>anjana@gmail.com</label>
+                    <label>{user.email}</label>
                 </div>
                 <div className="p-1">
-                    <label>2000-08-24</label>
+                    <label>{user.dob}</label>
                 </div>
             </div>
         </div>
