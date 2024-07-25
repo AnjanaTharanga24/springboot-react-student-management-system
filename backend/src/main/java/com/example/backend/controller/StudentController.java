@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin("http://localhost:3000")
 public class StudentController {
 
     private StudentService studentService;
@@ -46,7 +47,9 @@ public class StudentController {
     }
 
     @PostMapping("/login")
-    public LoginResponse loginStudent(@RequestBody StudentLoginRequest loginRequest) throws StudentNotFoundException{
-        return studentService.loginStudent(loginRequest);
+    public ResponseEntity<LoginResponse> loginStudent(@RequestBody StudentLoginRequest loginRequest) throws StudentNotFoundException {
+        LoginResponse response = studentService.loginStudent(loginRequest);
+        System.out.println("Login Response: " + response); // Add this line
+        return ResponseEntity.ok(response);
     }
 }
