@@ -27,7 +27,7 @@ export default function Navbar() {
     setDropdownOpen(!dropdownOpen);
   };
 
-  console.log("User in Navbar:", user);
+  // console.log("User in Navbar:", user);
 
   return (
     <div>
