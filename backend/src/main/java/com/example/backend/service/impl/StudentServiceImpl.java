@@ -105,7 +105,7 @@ public class StudentServiceImpl implements StudentService {
         currentStudent.setAddress(studentRequest.getAddress());
         currentStudent.setMobile(studentRequest.getMobile());
         currentStudent.setEmail(studentRequest.getEmail());
-        currentStudent.setPassword(studentRequest.getPassword());
+        currentStudent.setPassword(passwordEncoder.encode(studentRequest.getPassword()));
         currentStudent.setDob(studentRequest.getDob());
 
         studentRepository.save(currentStudent);
