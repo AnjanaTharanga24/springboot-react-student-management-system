@@ -1,9 +1,12 @@
 package com.example.backend.controller;
 
+import com.example.backend.controller.request.StudentCourseEnrollRequest;
 import com.example.backend.controller.request.StudentLoginRequest;
 import com.example.backend.controller.request.StudentRegisterRequest;
 import com.example.backend.controller.response.LoginResponse;
+import com.example.backend.controller.response.StudentEnrollResponse;
 import com.example.backend.controller.response.StudentResponse;
+import com.example.backend.exception.NotFoundException;
 import com.example.backend.exception.StudentExistsException;
 import com.example.backend.exception.StudentNotFoundException;
 import com.example.backend.model.Student;
@@ -52,4 +55,10 @@ public class StudentController {
         System.out.println("Login Response: " + response); // Add this line
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/students/{student-id}/courses")
+    public List<StudentEnrollResponse> enrollCourses(@PathVariable("student-id")Long studentId , @RequestBody List<StudentCourseEnrollRequest> courseEnrollRequest) throws StudentNotFoundException , NotFoundException {
+        return studentService.studentEnrollCourses(studentId,courseEnrollRequest);
+    }
+
 }

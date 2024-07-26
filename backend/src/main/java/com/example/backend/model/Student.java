@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -25,4 +26,7 @@ public class Student {
     private String email;
     private String password;
     private LocalDate dob;
+
+    @OneToMany(mappedBy = "student")
+    private List<Course> courses;
 }

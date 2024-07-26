@@ -1,18 +1,28 @@
 package com.example.backend.service.impl;
 
+import com.example.backend.controller.request.CourseDetailsRequest;
+import com.example.backend.controller.request.StudentCourseEnrollRequest;
 import com.example.backend.controller.request.StudentLoginRequest;
 import com.example.backend.controller.request.StudentRegisterRequest;
 import com.example.backend.controller.response.LoginResponse;
+import com.example.backend.controller.response.StudentEnrollResponse;
 import com.example.backend.controller.response.StudentResponse;
+import com.example.backend.exception.NotFoundException;
 import com.example.backend.exception.StudentExistsException;
 import com.example.backend.exception.StudentNotFoundException;
+import com.example.backend.model.Course;
+import com.example.backend.model.CourseDetails;
 import com.example.backend.model.Student;
+import com.example.backend.repository.CourseDetailsRepository;
+import com.example.backend.repository.CourseRepository;
 import com.example.backend.repository.StudentRepository;
 import com.example.backend.service.StudentService;
 import lombok.AllArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +31,8 @@ import java.util.Optional;
 public class StudentServiceImpl implements StudentService {
 
     private StudentRepository studentRepository;
+    private CourseDetailsRepository courseDetailsRepository;
+    private CourseRepository courseRepository;
     private PasswordEncoder passwordEncoder;
     @Override
     public StudentResponse registerStudent(StudentRegisterRequest studentRequest)throws StudentExistsException {
@@ -135,5 +147,45 @@ public class StudentServiceImpl implements StudentService {
         } else {
             throw new StudentNotFoundException("Invalid credentials");
         }
+    }
+
+    @Override
+    public List<StudentEnrollResponse> studentEnrollCourses(Long studentId, List<StudentCourseEnrollRequest> courseEnrollRequest) throws StudentNotFoundException , NotFoundException {
+        Student student = studentRepository.findById(studentId).orElseThrow(()->new StudentNotFoundException("student not found with id " + studentId));
+
+        if (student == null){
+            throw new StudentNotFoundException("student not found with id " + studentId);
+        }
+
+        List<StudentEnrollResponse> responses = new ArrayList<>();
+
+        for (StudentCourseEnrollRequest selections : courseEnrollRequest){
+            CourseDetails courseDetails = courseDetailsRepository.findByTitle(selections.getCourseTitle());
+
+            if(courseDetails == null){
+                throw new NotFoundException("course details not found with name " + selections.getCourseTitle() );
+            }
+            Course course = new Course();
+            course.setTitle(courseDetails.getTitle());
+            course.setInstructor(courseDetails.getInstructor());
+            course.setType(courseDetails.getType());
+            course.setDuration(courseDetails.getDuration());
+            course.setDate(courseDetails.getDate());
+            course.setStudent(student);
+
+            courseRepository.save(course);
+            student.getCourses().add(course);
+
+           StudentEnrollResponse enrollResponse = StudentEnrollResponse.builder()
+                   .title(course.getTitle())
+                   .instructor(course.getInstructor())
+                   .type(course.getType())
+                   .duration(course.getDuration())
+                   .date(course.getDate())
+                   .build();
+
+           responses.add(enrollResponse);
+        }
+        return responses;
     }
 }
