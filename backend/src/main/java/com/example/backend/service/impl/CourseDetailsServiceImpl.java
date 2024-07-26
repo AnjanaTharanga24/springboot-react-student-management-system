@@ -7,6 +7,8 @@ import com.example.backend.service.CourseDetailsService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class CourseDetailsServiceImpl implements CourseDetailsService {
@@ -22,5 +24,10 @@ public class CourseDetailsServiceImpl implements CourseDetailsService {
         courseDetails.setDate(courseDetailsRequest.getDate());
 
         return courseDetailsRepository.save(courseDetails);
+    }
+
+    @Override
+    public List<CourseDetails> getAllCourses() {
+        return courseDetailsRepository.findAll();
     }
 }
