@@ -49,3 +49,12 @@
 .course-card-text{
     color: black;
 }
+
+.btn-enrolled{
+    font-size: 20px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 100px;
+    color: white;
+}
