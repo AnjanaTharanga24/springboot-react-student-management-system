@@ -6,6 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logoImage from '../images/logo.png'
 
 export default function Navbar() {
   const { user, setUser } = useContext(UserContext);
@@ -32,7 +33,8 @@ export default function Navbar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark p-3">
-        <a className="navbar-brand text-white fs-4" href="/">
+        <img src={logoImage} className="logo"/>
+        <a className="navbar-brand text-white fs-3" href="/">
           Student Management System
         </a>
         <button
