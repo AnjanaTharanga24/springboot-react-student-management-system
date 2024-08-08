@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../css/landing.css";
 import homeImage2 from "../images/homeImage2.png";
 import card1Image from "../images/homeImg.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Home() {
+  const [course , setCourse] = useState();
+
+  useEffect(()=>{
+    fetchCourses()
+  })
+
+  const fetchCourses = async () =>{
+    try {
+      const response = await axios.get("http://localhost:8082/courses");
+      console.log(response.data);
+      setCourse(response.data);
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+    }
+  }
   return (
     <div>
       <div>
