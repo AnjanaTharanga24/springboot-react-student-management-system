@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../css/landing.css";
 import homeImage2 from "../images/homeImage2.png";
+import card1Image from "../images/homeImg.png";
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -41,7 +42,51 @@ export default function Home() {
       </div>
       
       <div>
-        <h1 className="sec2-title mt-5 ">Popular Courses</h1>
+        <h1 className="sec2-title mt-5 mb-5">Popular Courses</h1>
+
+        <div className="d-flex justify-content-center ">
+            <div className="card shadow me-5">
+                <div className="sec2-card">
+                   <img className="sec2-card-img" src={card1Image} alt="beans" />
+                   <p className="sec2-card-title">Course title</p>
+                </div>
+            </div>
+            <div className="card shadow me-5">
+                <div className="sec2-card">
+                   <img className="sec2-card-img" src={card1Image} alt="beans" />
+                   <p className="sec2-card-title">Course title</p>
+                </div>
+            </div>
+            <div className="card shadow me-5">
+                <div className="sec2-card">
+                   <img className="sec2-card-img" src={card1Image} alt="beans" />
+                   <p className="sec2-card-title">Course title</p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div className="d-flex justify-content-center mt-5">
+            <div className="card shadow me-5">
+                <div className="sec2-card">
+                   <img className="sec2-card-img" src={card1Image} alt="beans" />
+                   <p className="sec2-card-title">Course title</p>
+                </div>
+            </div>
+            <div className="card shadow me-5">
+                <div className="sec2-card">
+                   <img className="sec2-card-img" src={card1Image} alt="beans" />
+                   <p className="sec2-card-title">Course title</p>
+                </div>
+            </div>
+            <div className="card shadow me-5">
+                <div className="sec2-card">
+                   <img className="sec2-card-img" src={card1Image} alt="beans" />
+                   <p className="sec2-card-title">Course title</p>
+                </div>
+            </div>
+            
+        </div>
       </div>
 
       <div>

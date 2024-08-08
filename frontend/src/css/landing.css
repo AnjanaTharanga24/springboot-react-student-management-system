@@ -60,3 +60,12 @@
 .sec2-title{
    font-size: 60px;
 }
+
+.sec2-card-img{
+    width: 500px;
+}
+
+.sec2-card-title{
+    margin-top: 10px;
+    font-size: 30px;
+}
