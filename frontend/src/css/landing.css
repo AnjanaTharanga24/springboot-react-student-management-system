@@ -58,7 +58,7 @@
 }
 
 .sec2-title{
-   font-size: 60px;
+   font-size: 70px;
 }
 
 .sec2-card-img{
@@ -69,6 +69,11 @@
 .sec2-card-title{
     margin-top: 10px;
     font-size: 35px;
-    padding: 30px;
+    padding: 20px;
+    font-weight: 700;
 
+}
+
+.sec2{
+    background-color: aqua;
 }

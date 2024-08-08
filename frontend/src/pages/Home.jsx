@@ -61,8 +61,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
-        <h1 className="sec2-title mt-5 mb-5">Popular Courses</h1>
+      <div className="sec2 p-4">
+        <h1 className="sec2-title p-4 mb-5">Popular Courses</h1>
 
         <div className="d-flex justify-content-center flex-wrap">
           {courses.map((course, index) => (
