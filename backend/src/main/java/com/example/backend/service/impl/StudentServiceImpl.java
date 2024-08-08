@@ -4,6 +4,7 @@ import com.example.backend.controller.request.CourseDetailsRequest;
 import com.example.backend.controller.request.StudentCourseEnrollRequest;
 import com.example.backend.controller.request.StudentLoginRequest;
 import com.example.backend.controller.request.StudentRegisterRequest;
+import com.example.backend.controller.response.CourseResponse;
 import com.example.backend.controller.response.LoginResponse;
 import com.example.backend.controller.response.StudentEnrollResponse;
 import com.example.backend.controller.response.StudentResponse;
@@ -187,5 +188,30 @@ public class StudentServiceImpl implements StudentService {
            responses.add(enrollResponse);
         }
         return responses;
+    }
+
+    @Override
+    public List<CourseResponse> getEnrolledCourses(Long studentId) {
+
+        List<Course> courses = courseRepository.findByStudentId(studentId);
+        List<CourseResponse> responses = new ArrayList<>();
+
+        for (Course enrolledCourse : courses ){
+
+            CourseResponse courseResponse = CourseResponse.builder()
+                    .id(enrolledCourse.getId())
+                    .title(enrolledCourse.getTitle())
+                    .instructor(enrolledCourse.getInstructor())
+                    .type(enrolledCourse.getType())
+                    .duration(enrolledCourse.getDuration())
+                    .date(enrolledCourse.getDate())
+                    .studentId(enrolledCourse.getStudent().getId())
+                    .build();
+
+            responses.add(courseResponse);
+        }
+
+        return responses;
+
     }
 }
