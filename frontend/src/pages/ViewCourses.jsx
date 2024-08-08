@@ -10,16 +10,17 @@ import Swal from "sweetalert2";
 export default function ViewCourses() {
   const [courses, setCourses] = useState([]);
   const [enrolledCourses, setEnrolledCourses] = useState(new Set());
-  const { user } = useContext(UserContext); // Ensure you destructure `user` from the context
-  const studentId = user?.id; // Optional chaining to prevent undefined errors
+  const { user } = useContext(UserContext);
+  const studentId = user?.id;
 
   useEffect(() => {
     fetchCourses();
+    fetchEnrolledCourses();
   }, []);
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get('http://localhost:8082/courses');
+      const response = await axios.get("http://localhost:8082/courses");
       setCourses(response.data);
     } catch (error) {
       console.error("Error fetching courses:", error);
@@ -33,21 +34,32 @@ export default function ViewCourses() {
     }
 
     try {
-      const response = await axios.post(`http://localhost:8082/students/${studentId}/courses`, [
-        { courseTitle }
-      ]);
+      const response = await axios.post(`http://localhost:8082/students/${studentId}/courses`,
+        [{ courseTitle }]
+      );
       console.log("Enrollment successful:", response.data);
-      setEnrolledCourses(prevState => new Set(prevState).add(courseTitle));
+      setEnrolledCourses((prevState) => new Set(prevState).add(courseTitle));
       Swal.fire({
         position: "center",
         icon: "success",
         title: `Enrolled in ${courseTitle} successfully!`,
         showConfirmButton: false,
-        timer: 2500
+        timer: 2500,
       });
     } catch (error) {
       console.error("Error enrolling in course:", error);
       alert("Failed to enroll in the course. Please try again later.");
+    }
+  };
+
+  const fetchEnrolledCourses = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8082/students/${studentId}/courses`
+      );
+      setEnrolledCourses(new Set(response.data.map((course) => course.title)));
+    } catch (error) {
+      console.error("Error fetching enrolled courses:", error);
     }
   };
 
@@ -57,9 +69,18 @@ export default function ViewCourses() {
       <div className="container course-container">
         <div className="row justify-content-center">
           {courses.map((course, index) => (
-            <div key={course.id} className={`col-md-4 mb-5 ${index % 3 === 0 ? 'offset-md-0' : ''}`}>
+            <div
+              key={course.id}
+              className={`col-md-4 mb-5 ${
+                index % 3 === 0 ? "offset-md-0" : ""
+              }`}
+            >
               <div className="card course-card">
-                <img src={card1Image} className="card-img-top" alt={course.title} />
+                <img
+                  src={card1Image}
+                  className="card-img-top"
+                  alt={course.title}
+                />
                 <div className="card-title">
                   <p>{course.title.toUpperCase()}</p>
                 </div>
@@ -81,9 +102,16 @@ export default function ViewCourses() {
                 </div>
                 <div className="d-flex card-bottom">
                   {enrolledCourses.has(course.title) ? (
-                    <button className="btn btn-success p-1 btn-enroll" disabled>Enrolled</button>
+                    <button className="btn btn-success p-1 btn-enroll" disabled>
+                      Enrolled
+                    </button>
                   ) : (
-                    <button className="btn btn-dark p-1 btn-enroll" onClick={() => enrollCourse(course.title)}>Enroll</button>
+                    <button
+                      className="btn btn-dark p-1 btn-enroll"
+                      onClick={() => enrollCourse(course.title)}
+                    >
+                      Enroll
+                    </button>
                   )}
                   <p className="price mt-3">$100</p>
                 </div>
