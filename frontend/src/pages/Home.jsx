@@ -39,6 +39,10 @@ export default function Home() {
           </div>
         </div>
       </div>
+      
+      <div>
+        <h1 className="sec2-title mt-5 ">Popular Courses</h1>
+      </div>
 
       <div>
         <Footer />
