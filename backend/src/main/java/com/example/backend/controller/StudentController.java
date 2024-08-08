@@ -52,10 +52,10 @@ public class StudentController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> loginStudent(@RequestBody StudentLoginRequest loginRequest) throws StudentNotFoundException {
+    public LoginResponse loginStudent(@RequestBody StudentLoginRequest loginRequest) throws StudentNotFoundException {
         LoginResponse response = studentService.loginStudent(loginRequest);
-        System.out.println("Login Response: " + response); // Add this line
-        return ResponseEntity.ok(response);
+        System.out.println("Login Response: " + response);
+        return response;
     }
 
     @PostMapping("/students/{student-id}/courses")

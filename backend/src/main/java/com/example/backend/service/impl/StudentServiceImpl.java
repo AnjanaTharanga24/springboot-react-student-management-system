@@ -162,7 +162,7 @@ public class StudentServiceImpl implements StudentService {
 
         for (StudentCourseEnrollRequest selections : courseEnrollRequest){
             CourseDetails courseDetails = courseDetailsRepository.findByTitle(selections.getCourseTitle());
-
+            Integer studentCount = courseRepository.calculateEnrolledStudentCountOfCourses(selections.getCourseTitle());
             if(courseDetails == null){
                 throw new NotFoundException("course details not found with name " + selections.getCourseTitle() );
             }
@@ -173,6 +173,12 @@ public class StudentServiceImpl implements StudentService {
             course.setDuration(courseDetails.getDuration());
             course.setDate(courseDetails.getDate());
             course.setStudent(student);
+
+            CourseDetails updateCourseDetails = courseDetailsRepository.findByTitle(selections.getCourseTitle());
+            updateCourseDetails.setEnrolledStudents(studentCount);
+
+
+            courseDetailsRepository.save(updateCourseDetails);
 
             courseRepository.save(course);
             student.getCourses().add(course);
