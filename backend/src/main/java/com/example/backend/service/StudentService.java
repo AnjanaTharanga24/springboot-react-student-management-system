@@ -4,6 +4,7 @@ import com.example.backend.controller.StudentController;
 import com.example.backend.controller.request.StudentCourseEnrollRequest;
 import com.example.backend.controller.request.StudentLoginRequest;
 import com.example.backend.controller.request.StudentRegisterRequest;
+import com.example.backend.controller.response.CourseResponse;
 import com.example.backend.controller.response.LoginResponse;
 import com.example.backend.controller.response.StudentEnrollResponse;
 import com.example.backend.controller.response.StudentResponse;
@@ -29,4 +30,6 @@ public interface StudentService {
     LoginResponse loginStudent(StudentLoginRequest loginRequest) throws StudentNotFoundException;
 
     List<StudentEnrollResponse> studentEnrollCourses(Long studentId , List<StudentCourseEnrollRequest> courseEnrollRequest) throws StudentNotFoundException , NotFoundException;
+
+    List<CourseResponse> getEnrolledCourses(Long studentId);
 }

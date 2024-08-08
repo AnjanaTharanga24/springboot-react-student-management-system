@@ -3,12 +3,14 @@ package com.example.backend.controller;
 import com.example.backend.controller.request.StudentCourseEnrollRequest;
 import com.example.backend.controller.request.StudentLoginRequest;
 import com.example.backend.controller.request.StudentRegisterRequest;
+import com.example.backend.controller.response.CourseResponse;
 import com.example.backend.controller.response.LoginResponse;
 import com.example.backend.controller.response.StudentEnrollResponse;
 import com.example.backend.controller.response.StudentResponse;
 import com.example.backend.exception.NotFoundException;
 import com.example.backend.exception.StudentExistsException;
 import com.example.backend.exception.StudentNotFoundException;
+import com.example.backend.model.Course;
 import com.example.backend.model.Student;
 import com.example.backend.service.StudentService;
 import lombok.AllArgsConstructor;
@@ -59,6 +61,11 @@ public class StudentController {
     @PostMapping("/students/{student-id}/courses")
     public List<StudentEnrollResponse> enrollCourses(@PathVariable("student-id")Long studentId , @RequestBody List<StudentCourseEnrollRequest> courseEnrollRequest) throws StudentNotFoundException , NotFoundException {
         return studentService.studentEnrollCourses(studentId,courseEnrollRequest);
+    }
+
+    @GetMapping("/students/{student-id}/courses")
+    public List<CourseResponse> getEnrolledCoursesByStudentId(@PathVariable("student-id") Long studentId){
+        return studentService.getEnrolledCourses(studentId);
     }
 
 }
