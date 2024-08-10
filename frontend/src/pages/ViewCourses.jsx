@@ -64,7 +64,7 @@ export default function ViewCourses() {
   };
 
   return (
-    <div>
+    <div className="view-course-page">
       <Navbar />
       <div className="container course-container">
         <div className="row justify-content-center ">
