@@ -1,7 +1,8 @@
 .course-card{
     width: 400px;
     height: 670px;
-    
+    background-color: black;
+    color: aliceblue;
 }
 
 .course-container{
