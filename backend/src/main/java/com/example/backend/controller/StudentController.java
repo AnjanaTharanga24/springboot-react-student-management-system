@@ -21,7 +21,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin("http://localhost:3001")
+@CrossOrigin("http://localhost:3000")
 public class StudentController {
 
     private StudentService studentService;
