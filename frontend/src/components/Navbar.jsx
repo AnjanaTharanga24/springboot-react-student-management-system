@@ -6,7 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logoImage from '../images/logo.png'
+import logoImage from "../images/logo.png";
 
 export default function Navbar() {
   const { user, setUser } = useContext(UserContext);
@@ -28,26 +28,16 @@ export default function Navbar() {
     setDropdownOpen(!dropdownOpen);
   };
 
-  // console.log("User in Navbar:", user);
-
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark p-3">
-        <img src={logoImage} className="logo"/>
+        <img src={logoImage} className="logo" />
         <a className="navbar-brand text-white fs-3" href="/">
           Student Management System
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
+        <a>
+          <p className="text-white my-courses-button fs-4 mt-3 ">My Courses</p>
+        </a>
         <div
           className="collapse navbar-collapse justify-content-end"
           id="navbarNav"
@@ -75,20 +65,18 @@ export default function Navbar() {
                     icon={faUserCircle}
                     className="profile-icon text-white"
                   />
-                  <span className="username text-white fs-4">{user.username}</span>
+                  <span className="username text-white fs-4">
+                    {user.username}
+                  </span>
                   <span className="dropdown-arrow text-white fs-4">▼</span>
                 </div>
                 {dropdownOpen && (
                   <div className="dropdown-content show">
-                     <Link to="/student-profile">
-                      My profile
-                    </Link>
+                    <Link to="/student-profile">My profile</Link>
                     <Link to="/" onClick={handleLogout}>
                       Logout
                     </Link>
-                   
                   </div>
-                  
                 )}
               </li>
             )}
