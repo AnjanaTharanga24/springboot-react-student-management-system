@@ -1,6 +1,6 @@
 .course-card{
-    width: 400px;
-    height: 670px;
+    width: 420px;
+    height: 680px;
     background-color: black;
     color: aliceblue;
 }
@@ -58,4 +58,8 @@
     margin-left: 40px;
     width: 100px;
     color: white;
+}
+
+.view-course-page{
+    background-color: rgb(15, 9, 34);
 }
