@@ -67,7 +67,7 @@ export default function ViewCourses() {
     <div>
       <Navbar />
       <div className="container course-container">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center ">
           {courses.map((course, index) => (
             <div
               key={course.id}
@@ -85,7 +85,7 @@ export default function ViewCourses() {
                   <p>{course.title.toUpperCase()}</p>
                 </div>
                 <div className="d-flex course-card-body">
-                  <div className="course-card-text text-start fs-5">
+                  <div className="course-card-text text-white text-start fs-5">
                     <p>Instructor</p>
                     <p>Type</p>
                     <p>Duration</p>
