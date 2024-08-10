@@ -32,12 +32,19 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark p-3">
         <img src={logoImage} className="logo" />
-        <a className="navbar-brand text-white fs-3" href="/">
+        <a className="navbar-brand text-white fs-1" href="/">
           Student Management System
         </a>
-        <Link to="/my-courses" className="my-courses-link">
-          <p className="text-white my-courses-button fs-4 mt-3">My Courses</p>
-        </Link>
+
+        <div className="d-flex">
+          <Link to="/view-courses" className="my-courses-link">
+            <p className="text-white my-courses-button fs-3 mt-3">Courses</p>
+          </Link>
+          <Link to="/my-courses" className="my-courses-link">
+            <p className="text-white my-courses-button fs-3 mt-3">My Courses</p>
+          </Link>
+        </div>
+
         <div
           className="collapse navbar-collapse justify-content-end"
           id="navbarNav"
