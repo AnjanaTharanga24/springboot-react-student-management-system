@@ -83,6 +83,10 @@
 
 .my-courses-button {
   margin-left: 30px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #fff;
 }
 
 .my-courses-link {
@@ -92,3 +96,4 @@
 .my-courses-link:hover {
   text-decoration: none !important;
 }
+
