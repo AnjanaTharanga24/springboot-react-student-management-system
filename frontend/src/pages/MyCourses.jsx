@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../css/mycourses.css";
-import card1Image from "../images/homeImg.png";
+import card1Image from "../images/courseImg2.jpeg";
 import axios from "axios";
 import { UserContext } from "../components/UserContext";
 export default function MyCourses() {
