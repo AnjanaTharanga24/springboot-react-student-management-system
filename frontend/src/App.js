@@ -10,6 +10,7 @@ import { UserProvider } from './components/UserContext';
 import StudentProfile from './pages/StudentProfile';
 import UpdateStudentProfile from './pages/UpdateStudentProfile';
 import ViewCourses from './pages/ViewCourses';
+import MyCourses from './pages/MyCourses';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/student-profile" element={<StudentProfile />} />
           <Route path="/update-student-profile" element={<UpdateStudentProfile />} />
           <Route path="/view-courses" element={<ViewCourses />} />
+          <Route path="/my-courses" element={<MyCourses />} />
 
 
         </Routes>

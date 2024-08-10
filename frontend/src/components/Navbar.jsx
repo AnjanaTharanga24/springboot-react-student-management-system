@@ -35,9 +35,9 @@ export default function Navbar() {
         <a className="navbar-brand text-white fs-3" href="/">
           Student Management System
         </a>
-        <a>
-          <p className="text-white my-courses-button fs-4 mt-3 ">My Courses</p>
-        </a>
+        <Link to="/my-courses" className="my-courses-link">
+          <p className="text-white my-courses-button fs-4 mt-3">My Courses</p>
+        </Link>
         <div
           className="collapse navbar-collapse justify-content-end"
           id="navbarNav"
