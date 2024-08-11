@@ -55,7 +55,7 @@
     height: 790px;
     background-color: black;
     color: aliceblue;
-    box-shadow: 1px 1px 6px 1px rgba(255, 255, 255, 0.9), 6px 6px 100px 0 rgba(255, 255, 255, 0.19);
+    box-shadow: 1px 1px 6px 1px rgba(255, 255, 255, 0.9), 6px 6px 10px 0 rgba(255, 255, 255, 0.19);
     transition: all 0.3s ease; 
 }
 
