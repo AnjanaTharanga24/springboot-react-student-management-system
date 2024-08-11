@@ -1,13 +1,9 @@
-.course-card{
-    width: 420px;
-    height: 680px;
-    background-color: black;
-    color: aliceblue;
-}
+
 
 .course-container{
     margin-top: 90px;
     margin-bottom: 100px;
+    margin-left: 120px;
 }
 
 .card-title{
@@ -16,28 +12,8 @@
     padding: 20px;
 }
 
-.course-card{
-    width: 420px;
-    height: 680px;
-    background-color: black;
-    color: aliceblue;
-}
-
-.course-container{
-    margin-top: 90px;
-    margin-bottom: 100px;
-}
-
-.card-title{
-    font-size: 20px;
-    font-weight: 600;
-    padding: 20px;
-}
-
-
-
 .price{
-    margin-left: 160px;
+    margin-left: 250px;
     font-size: 30px;
 }
 
@@ -46,7 +22,7 @@
    font-size: 20px;
    height: 40px;
    margin-top: 20px;
-   margin-left: 40px;
+   margin-left: 400px;
    width: 100px;
 }
 .card-bottom{
@@ -61,37 +37,26 @@
     
 }
 
-.course-value-text{
-    margin-left: 40px;
-    color: rgb(112, 109, 109);
-}
-
 .course-card-text{
     color: black;
+    font-size: 22px;
 }
 
-.btn-enrolled{
-    font-size: 20px;
-    height: 40px;
-    margin-top: 20px;
-    margin-left: 40px;
-    width: 100px;
-    color: white;
-}
+
 
 .view-course-page{
     background-color: rgb(1, 1, 19);
 }
 
-.course-card{
-    padding: 10px;
-}
+
 
 .course-card{
-    width: 420px;
-    height: 680px;
+    width: 500px;
+    height: 790px;
     background-color: black;
     color: aliceblue;
+    box-shadow: 1px 1px 6px 1px rgba(255, 255, 255, 0.9), 6px 6px 100px 0 rgba(255, 255, 255, 0.19);
+    transition: all 0.3s ease; 
 }
 
 .course-container{
@@ -99,47 +64,22 @@
     margin-bottom: 100px;
 }
 
-.card-title{
-    font-size: 20px;
-    font-weight: 600;
-    padding: 20px;
-}
 
-
-
-.price{
-    margin-left: 160px;
-    font-size: 30px;
-}
-
-.btn-enroll{
-   /* margin-right: 50px; */
-   font-size: 20px;
-   height: 40px;
-   margin-top: 20px;
-   margin-left: 40px;
-   width: 100px;
-}
 .card-bottom{
-    /* height: 200px; */
     margin-top: -30px;
 }
 
-.course-card-body{
-    margin-left: 30px;
-    margin-top: -20px;
-    margin-bottom: 20px;
-    
-}
 
 .course-value-text{
-    margin-left: 40px;
+    margin-left: 120px;
     color: rgb(112, 109, 109);
+    font-size: 22px;
 }
 
-.course-card-text{
+/* .course-card-text{
     color: black;
-}
+
+} */
 
 .btn-enrolled{
     font-size: 20px;
@@ -159,11 +99,6 @@
 }
 
 
-.price{
-    margin-left: 160px;
-    font-size: 30px;
-}
-
 .btn-enroll{
    /* margin-right: 50px; */
    font-size: 20px;
@@ -177,21 +112,7 @@
     margin-top: -30px;
 }
 
-.course-card-body{
-    margin-left: 30px;
-    margin-top: -20px;
-    margin-bottom: 20px;
-    
-}
 
-.course-value-text{
-    margin-left: 40px;
-    color: rgb(112, 109, 109);
-}
-
-.course-card-text{
-    color: black;
-}
 
 .btn-enrolled{
     font-size: 20px;

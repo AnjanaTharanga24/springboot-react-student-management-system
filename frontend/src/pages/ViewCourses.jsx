@@ -72,7 +72,7 @@ export default function ViewCourses() {
   return (
     <div className="view-course-page">
       <Navbar />
-      <div className="container course-container">
+      <div className=" course-container ">
         <div className="row justify-content-space-between ">
           {courses.map((course, index) => (
             <div
@@ -91,14 +91,14 @@ export default function ViewCourses() {
                   <p>{course.title.toUpperCase()}</p>
                 </div>
                 <div className="d-flex course-card-body">
-                  <div className="course-card-text text-white text-start fs-5">
+                  <div className="course-card-text text-white text-start ">
                     <p>Instructor</p>
                     <p>Type</p>
                     <p>Duration</p>
                     <p>Date</p>
                     <p>Students enrolled</p>
                   </div>
-                  <div className="course-value-text text-start fs-5">
+                  <div className="course-value-text text-start">
                     <p>{course.instructor}</p>
                     <p>{course.type}</p>
                     <p>{course.duration}</p>
