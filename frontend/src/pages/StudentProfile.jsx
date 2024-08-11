@@ -46,7 +46,7 @@ export default function StudentProfile() {
       </div>
 
       <div className=" d-flex profile-card ">
-        <div className="shadow profile-image-card ">
+        <div className="profile-image-card ">
           <img src={profileImage} className="profile-image" />
           <p className="profile-name">{user.name}</p>
           <div className="p-4">
@@ -58,7 +58,7 @@ export default function StudentProfile() {
             </button>
           </div>
         </div>
-        <div className="d-flex shadow profile-details-card  text-start">
+        <div className="d-flex profile-details-card  text-start">
             <div className="main-text fs-2">
                 <div className="p-1">
                     <label>Name</label>

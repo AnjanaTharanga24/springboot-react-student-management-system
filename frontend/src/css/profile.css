@@ -1,11 +1,13 @@
 .student-profile{
- background-image: url(../images/profilebg6.jpg);
+ /* background-image: url(../images/profilebg2.jpg);
  background-repeat: no-repeat;
  background-size: cover;
  background-position: center;
  min-height: 100vh;
  justify-content: center;
- align-items: center;
+ align-items: center; */
+
+ background-color: black;
 }
 
 .profile-image-card{
@@ -14,6 +16,9 @@
     background-color: rgba(0, 0,0,0.8);
     color: white;
     border-radius: 20px;
+    box-shadow: 1px 1px 6px 1px rgba(255, 255, 255, 0.9), 6px 6px 100px 0 rgba(255, 255, 255, 0.19);
+    transition: all 0.3s ease; 
+    
 }
 
 .profile-details-card{
@@ -22,6 +27,8 @@
     padding: 50px;
     background-color: rgba(0, 0,0,0.9);
     border-radius: 20px;
+    box-shadow: 1px 1px 6px 1px rgba(255, 255, 255, 0.9), 6px 6px 100px 0 rgba(255, 255, 255, 0.19);
+    transition: all 0.3s ease; 
 }
 
 .profile-card{

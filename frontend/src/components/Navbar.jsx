@@ -33,7 +33,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-light bg-dark p-3">
         <img src={logoImage} className="logo" />
         <a className="navbar-brand text-white fs-1" href="/">
-          Student Management System
+        Education Galaxy
         </a>
 
         <div className="d-flex">
@@ -54,12 +54,12 @@ export default function Navbar() {
               <>
                 <li className="nav-item">
                   <Link to="/login">
-                    <button className="signin btn btn-success">Sign in</button>
+                    <button className="signin btn btn-success fs-4">Sign in</button>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/register">
-                    <button className="btn btn-info text-white">Sign up</button>
+                    <button className="btn btn-info text-white fs-4">Sign up</button>
                   </Link>
                 </li>
               </>

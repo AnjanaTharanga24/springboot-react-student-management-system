@@ -68,9 +68,9 @@ export default function UpdateStudentProfile() {
         <Navbar />
       </div>
 
-      <div className="reg-card reg-card mt-5 shadow fs-5 register-form">
+      <div className="reg-card reg-card mt-5 fs-5 register-form">
         <div className="form-header">
-          <h2>Register student</h2>
+          <h2>Update student</h2>
         </div>
         <form onSubmit={handleSubmit}>
           <div className="form-group mb-4">
