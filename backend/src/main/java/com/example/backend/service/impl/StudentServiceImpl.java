@@ -177,7 +177,6 @@ public class StudentServiceImpl implements StudentService {
             CourseDetails updateCourseDetails = courseDetailsRepository.findByTitle(selections.getCourseTitle());
             updateCourseDetails.setEnrolledStudents(studentCount);
 
-
             courseDetailsRepository.save(updateCourseDetails);
 
             courseRepository.save(course);
