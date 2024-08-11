@@ -35,13 +35,13 @@ export default function Register() {
       console.log(response.data);
 
       Swal.fire({
+        position: "center",
         icon: "success",
-        title: 'Registration Successful!',
-        text: 'You have been registered successfully.',
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'OK'     
-       });
-      navigate('/login');
+        title: "Registeration Successfull!",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      setTimeout(() => navigate('/login'), 1000);
     } catch (error) {
       console.error("Registration error:", error);
       Swal.fire({
