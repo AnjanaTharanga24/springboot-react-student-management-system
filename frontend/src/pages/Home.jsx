@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../css/landing.css";
-import homeImage2 from "../images/homeImage2.png";
+import homeImage2 from "../images/profilebg2.jpg";
 import card1Image from "../images/courseImg2.jpeg";
 import { Link } from "react-router-dom";
 import axios from "axios";
