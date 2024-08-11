@@ -40,6 +40,7 @@
     margin-left: 30px;
     margin-top: -20px;
     margin-bottom: 20px;
+    
 }
 
 .course-value-text{
@@ -62,4 +63,8 @@
 
 .view-course-page{
     background-color: rgb(15, 9, 34);
+}
+
+.course-card{
+    padding: 10px;
 }

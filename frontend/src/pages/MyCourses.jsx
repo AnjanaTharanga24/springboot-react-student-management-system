@@ -26,21 +26,21 @@ export default function MyCourses() {
     }
   };
   return (
-    <div>
+    <div className="my-courses">
       <Navbar />
 
       <div className="my-courses-body mt-5">
-        <div className="d-flex justify-content-center flex-wrap">
-          {courses.map((course, index) => (
-            <div className="card shadow me-5 mb-5" key={index}>
-              <div className="sec2-card">
-                <img className="sec2-card-img" src={card1Image} />
-                <p className="sec2-card-title ">{course.title}</p>
-              </div>
-            </div>
-          ))}
+  <div className="d-flex justify-content-center flex-wrap">
+    {courses.map((course, index) => (
+      <div className="card  me-5 mb-5" key={index}>
+        <div className="sec2-card">
+          <img className="sec2-card-img" src={card1Image} alt={course.title} />
+          <p className="sec2-card-title">{course.title}</p>
         </div>
       </div>
+    ))}
+  </div>
+</div>
 
       <Footer />
     </div>
