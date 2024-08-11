@@ -12,6 +12,8 @@ public interface CourseRepository extends JpaRepository<Course , Long> {
     @Query("SELECT COUNT (c.title) FROM Course c WHERE c.title = :courseTitle")
     Integer calculateEnrolledStudentCountOfCourses(String courseTitle);
 
+    void deleteAllByStudentId(Long studentId);
+
 }
 
 //select count(c.title)
