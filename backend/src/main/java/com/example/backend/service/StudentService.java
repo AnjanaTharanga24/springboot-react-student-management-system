@@ -32,4 +32,6 @@ public interface StudentService {
     List<StudentEnrollResponse> studentEnrollCourses(Long studentId , List<StudentCourseEnrollRequest> courseEnrollRequest) throws StudentNotFoundException , NotFoundException;
 
     List<CourseResponse> getEnrolledCourses(Long studentId);
+
+
 }

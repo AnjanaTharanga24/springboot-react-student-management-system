@@ -11,6 +11,7 @@ public interface CourseRepository extends JpaRepository<Course , Long> {
     List<Course> findByStudentId(Long id);
     @Query("SELECT COUNT (c.title) FROM Course c WHERE c.title = :courseTitle")
     Integer calculateEnrolledStudentCountOfCourses(String courseTitle);
+
 }
 
 //select count(c.title)
