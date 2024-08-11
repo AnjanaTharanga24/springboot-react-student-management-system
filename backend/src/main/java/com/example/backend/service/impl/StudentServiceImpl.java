@@ -22,6 +22,7 @@ import lombok.AllArgsConstructor;
 import org.apache.catalina.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,7 +99,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    @Transactional
     public String studentDeleteById(Long studentId) {
+        courseRepository.deleteAllByStudentId(studentId);
         studentRepository.deleteById(studentId);
         return "student deleted success with id "+studentId;
     }
