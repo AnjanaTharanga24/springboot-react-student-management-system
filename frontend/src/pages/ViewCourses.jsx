@@ -67,15 +67,15 @@ export default function ViewCourses() {
     <div className="view-course-page">
       <Navbar />
       <div className="container course-container">
-        <div className="row justify-content-center ">
+        <div className="row justify-content-space-between ">
           {courses.map((course, index) => (
             <div
               key={course.id}
-              className={`col-md-4 mb-5 ${
+              className={`col-md-4 mb-5  ${
                 index % 3 === 0 ? "offset-md-0" : ""
               }`}
             >
-              <div className="card course-card">
+              <div className="card course-card ">
                 <img
                   src={card1Image}
                   className="card-img-top"
