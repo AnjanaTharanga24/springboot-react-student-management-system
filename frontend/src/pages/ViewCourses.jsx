@@ -102,7 +102,7 @@ export default function ViewCourses() {
                 </div>
                 <div className="d-flex card-bottom">
                   {enrolledCourses.has(course.title) ? (
-                    <button className="btn btn-success p-1 btn-enroll" disabled>
+                    <button className="btn p-1 btn-enroll" style={{backgroundColor: "yellowGreen" , color:"white"}} disabled>
                       Enrolled
                     </button>
                   ) : (
