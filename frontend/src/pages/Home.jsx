@@ -34,7 +34,10 @@ export default function Home() {
         <div className="hero-card mt-3">
           <div className="text-div">
             <p className=" p-5 text-white hero-text-title">
-              Welcome to Our Student Management System
+              Welcome to Our  Education 
+            </p>
+            <p className=" text-white" style={{marginTop:"-70px",marginBottom:"70px" , fontSize:"60px",fontWeight:"bold" }}>
+               Galaxy
             </p>
 
             <div className="text2-div">

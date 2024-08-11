@@ -11,6 +11,24 @@
 }
 
 .card-title{
+    font-size: 30px;
+    font-weight: 600;
+    padding: 20px;
+}
+
+.course-card{
+    width: 420px;
+    height: 680px;
+    background-color: black;
+    color: aliceblue;
+}
+
+.course-container{
+    margin-top: 90px;
+    margin-bottom: 100px;
+}
+
+.card-title{
     font-size: 20px;
     font-weight: 600;
     padding: 20px;
@@ -62,7 +80,130 @@
 }
 
 .view-course-page{
-    background-color: rgb(15, 9, 34);
+    background-color: rgb(1, 1, 19);
+}
+
+.course-card{
+    padding: 10px;
+}
+
+.course-card{
+    width: 420px;
+    height: 680px;
+    background-color: black;
+    color: aliceblue;
+}
+
+.course-container{
+    margin-top: 90px;
+    margin-bottom: 100px;
+}
+
+.card-title{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 20px;
+}
+
+
+
+.price{
+    margin-left: 160px;
+    font-size: 30px;
+}
+
+.btn-enroll{
+   /* margin-right: 50px; */
+   font-size: 20px;
+   height: 40px;
+   margin-top: 20px;
+   margin-left: 40px;
+   width: 100px;
+}
+.card-bottom{
+    /* height: 200px; */
+    margin-top: -30px;
+}
+
+.course-card-body{
+    margin-left: 30px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    
+}
+
+.course-value-text{
+    margin-left: 40px;
+    color: rgb(112, 109, 109);
+}
+
+.course-card-text{
+    color: black;
+}
+
+.btn-enrolled{
+    font-size: 20px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 100px;
+    color: white;
+}
+
+.view-course-page{
+    background-color: rgb(1, 1, 19);
+}
+
+.course-card{
+    padding: 10px;
+}
+
+
+.price{
+    margin-left: 160px;
+    font-size: 30px;
+}
+
+.btn-enroll{
+   /* margin-right: 50px; */
+   font-size: 20px;
+   height: 40px;
+   margin-top: 20px;
+   margin-left: 40px;
+   width: 100px;
+}
+.card-bottom{
+    /* height: 200px; */
+    margin-top: -30px;
+}
+
+.course-card-body{
+    margin-left: 30px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    
+}
+
+.course-value-text{
+    margin-left: 40px;
+    color: rgb(112, 109, 109);
+}
+
+.course-card-text{
+    color: black;
+}
+
+.btn-enrolled{
+    font-size: 20px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 100px;
+    color: white;
+}
+
+.view-course-page{
+    background-color: rgb(1, 1, 19);
 }
 
 .course-card{

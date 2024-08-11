@@ -29,7 +29,13 @@ export default function ViewCourses() {
 
   const enrollCourse = async (courseTitle) => {
     if (!studentId) {
-      alert("Student ID is not available.");
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Please login to before enroll in a course.",
+        showConfirmButton: false,
+        timer: 2000
+      });
       return;
     }
 
@@ -78,7 +84,7 @@ export default function ViewCourses() {
               <div className="card course-card ">
                 <img
                   src={card1Image}
-                  className="card-img-top"
+                  className="card-img-top "
                   alt={course.title}
                 />
                 <div className="card-title">

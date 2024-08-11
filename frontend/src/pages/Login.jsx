@@ -53,7 +53,7 @@ export default function Login() {
       <Navbar />
     </div> */}
 
-      <div className="log-card shadow fs-5 login-form">
+      <div className="log-card  login-form">
         <div className="form-header mt-1">
           <h2>Login Form</h2>
         </div>
@@ -89,14 +89,14 @@ export default function Login() {
           <div className="d-flex justify-content-between mt-5">
             <button
               type="submit"
-              className="btn btn-success"
+              className="btn btn-success fs-4"
               onClick={handleSubmit}
             >
               Login
             </button>
 
             <Link to="/register">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary fs-4">
                 Register
               </button>
             </Link>
