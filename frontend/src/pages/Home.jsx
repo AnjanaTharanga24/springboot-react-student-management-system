@@ -6,9 +6,20 @@ import homeImage2 from "../images/profilebg2.jpg";
 import card1Image from "../images/courseImg2.jpeg";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import '../css/Loading.css'
 export default function Home() {
   const [courses, setCourse] = useState([]);
+
+  const LoadingAnimation = () => (
+    <div className="loading-animation">
+      <div className="loading-dots">
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+      </div>
+      <p>Loading popular courses...</p>
+    </div>
+  );
 
   useEffect(() => {
     fetchCourses();
@@ -68,6 +79,15 @@ export default function Home() {
         <h1 className="sec2-title p-4 mb-5">Popular Courses</h1>
 
         <div className="d-flex justify-content-center flex-wrap">
+          {courses.length === 0 &&(
+            <div className=" me-5 mb-5">
+            <div className="error-card-home">
+              <p className="error-card-title">
+                <LoadingAnimation/>
+             </p>
+            </div>
+          </div>
+          )}
           {courses.map((course, index) => (
             <div className="card shadow me-5 mb-5" key={index}>
               <div className="sec2-card">
