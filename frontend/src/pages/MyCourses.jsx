@@ -31,7 +31,17 @@ export default function MyCourses() {
 
       <div className="my-courses-body mt-5">
   <div className="d-flex justify-content-center flex-wrap">
+
+    {courses.length === 0 && (
+      <div className=" me-5 mb-5">
+        <div className="error-card">
+          <p className="error-card-title">You are not enrolled in any of our courses...</p>
+        </div>
+      </div>
+    )}
+
     {courses.map((course, index) => (
+     
       <div className="card  me-5 mb-5" key={index}>
         <div className="sec2-card">
           <img className="sec2-card-img" src={card1Image} alt={course.title} />

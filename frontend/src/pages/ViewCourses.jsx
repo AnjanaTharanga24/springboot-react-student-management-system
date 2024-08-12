@@ -13,6 +13,17 @@ export default function ViewCourses() {
   const { user } = useContext(UserContext);
   const studentId = user?.id;
 
+  const LoadingAnimation = () => (
+    <div className="loading-animation">
+      <div className="loading-dots">
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+      </div>
+      <p>Loading our courses...</p>
+    </div>
+  );
+
   useEffect(() => {
     fetchCourses();
     fetchEnrolledCourses();
@@ -34,13 +45,14 @@ export default function ViewCourses() {
         icon: "error",
         title: "Please login to before enroll in a course.",
         showConfirmButton: false,
-        timer: 2000
+        timer: 2000,
       });
       return;
     }
 
     try {
-      const response = await axios.post(`http://localhost:8082/students/${studentId}/courses`,
+      const response = await axios.post(
+        `http://localhost:8082/students/${studentId}/courses`,
         [{ courseTitle }]
       );
       console.log("Enrollment successful:", response.data);
@@ -74,6 +86,15 @@ export default function ViewCourses() {
       <Navbar />
       <div className=" course-container ">
         <div className="row justify-content-space-between ">
+          {courses.length === 0 && (
+            <div className=" me-5 mb-5">
+              <div className="error-card-view-course">
+                <p className="error-card-title">
+                  <LoadingAnimation/>
+                </p>
+              </div>
+            </div>
+          )}
           {courses.map((course, index) => (
             <div
               key={course.id}
@@ -108,7 +129,11 @@ export default function ViewCourses() {
                 </div>
                 <div className="d-flex card-bottom">
                   {enrolledCourses.has(course.title) ? (
-                    <button className="btn p-1 btn-enroll" style={{backgroundColor: "yellowGreen" , color:"white"}} disabled>
+                    <button
+                      className="btn p-1 btn-enroll"
+                      style={{ backgroundColor: "yellowGreen", color: "white" }}
+                      disabled
+                    >
                       Enrolled
                     </button>
                   ) : (
